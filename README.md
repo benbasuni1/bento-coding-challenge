@@ -26,8 +26,11 @@
 ##### Phase 1 (FRONT-END):
   1. [x] Connect React-Bootstrap, Center h1 Title 'Bento-Bento Cats'
   2. [x] Create Navbar with title and sort & favorite buttons
-  3. [ ] Get Data properly parsed from API's
-  4. [ ] Instantiate 1 cat card
+  3. [x] Establish data structures and variables needed to pass information throughout application
+  4. [ ] Get Data properly parsed from API's
+        [x] Create parser function for cat Description
+        [ ] Create parser function for cat Picture
+  5. [ ] Instantiate 1 cat card
         * Favorite Button
         * Image
         * Description
