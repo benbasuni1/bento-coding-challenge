@@ -10,11 +10,16 @@
 
 ##### Functionality of Page:
 1. Allow users to **view only favorited images**
-![test](https://github.com/benbasuni1/bento-coding-challenge/blob/master/planning/01-functionality-view-favorited.png)
-2. Allow users to **view 1 photo and fact at a time**
-3. Allow users to **sort alphabetically by last word in the cat fact**
-4. Allow users to **favorite an image w/ fact**
+![viewFavoriteImages](https://github.com/benbasuni1/bento-coding-challenge/blob/master/planning/01-functionality-view-favorited.png)
 
+2. Allow users to **view 1 photo and fact at a time**
+![viewOnePhoto](https://github.com/benbasuni1/bento-coding-challenge/blob/master/planning/02-functionality-1photo.png)
+
+3. Allow users to **sort alphabetically by last word in the cat fact**
+![sortAlphabetically](https://github.com/benbasuni1/bento-coding-challenge/blob/master/planning/03-functionality-sort.png)
+
+4. Allow users to **favorite an image w/ fact**
+![favoriteImage](https://github.com/benbasuni1/bento-coding-challenge/blob/master/planning/04-functionality-favorites.png)
 
 ### Thought Process:
 ---
