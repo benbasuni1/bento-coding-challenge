@@ -5,7 +5,8 @@ import PageNavBar from './components/PageNavbar';
 // import Card from './components/Card';
 
 // API Calls and Parser 
-import convert from 'xml-to-json-promise';
+import convert from 'xml-js';
+import axios from 'axios';
 
 // CSS
 import './App.css';
@@ -27,29 +28,47 @@ class App extends Component {
   }
 
   componentWillMount() {
-    // When the App renders, make 
+    // When the App renders, instantiate this.state.cats 
     this.populateCatObjects();
   }
 
   populateCatObjects() {
+    let arr = [];
 
-    // Implement using fetch and use promise.all
-    const fetchCatDescriptions = fetch(catDescriptionsAPI).then(res => res.json());
-    const fetchCatImages       = fetch(catImagesAPI).then(res => res.text());
+    // Axios calls to get data
+    let catObjVals = Promise.all([axios.get(catImagesAPI), axios.get(catDescriptionsAPI)])
+    .then(requestData => {
+      // Parse data
+      return [
+        convert.xml2js(requestData[0].data, { compact: true }).response.data.images.image,
+        JSON.parse(requestData[1].data.body).data,
+      ];
+    })
+    .catch(err => {
+      console.log(err)
+    })
 
-    console.log(fetchCatImages);
-    let abc = Promise.all([fetchCatDescriptions, fetchCatImages])
-    .then(requestData => [requestData[0], convert.xmlDataToJSON(requestData[1]).then(res => res)])
-    .then(item => {
-      let catDescriptions  = JSON.parse(item[0].body).data;
-      let catImages        = item[1].then(json => json.response.data[0].images[0].image)
-      return [catDescriptions, catImages];
-    });
-
-    console.log(abc.then(res => console.log(res)));
+    // Populate this.state.cats
+    catObjVals.then(items => {
+      let catImages = items[0];
+      let catDescription = items[1];
+      for (let i = 0; i < catImages.length; i++) {
+        let fact = catDescription[i].fact;
+        arr.push({
+          id: catImages[i].id._text,
+          description: fact,
+          image: catImages[i].url._text,
+          last: fact.split(' ').splice(-1)[0]
+        })
+      }
+      this.setState({
+        cats: arr
+      });
+    })
   }
 
   render() {
+    console.log(this.state.cats);
     return (
       <div className="main">
         <PageNavBar />
