@@ -13,7 +13,7 @@
 ![viewFavoriteImages](https://github.com/benbasuni1/bento-coding-challenge/blob/master/planning/01-functionality-view-favorited.png)
 
 2. Allow users to **view 1 photo and fact at a time**
-![viewOnePhoto](https://github.com/benbasuni1/bento-coding-challenge/blob/master/planning/02-functionality-1photo.png)
+![viewOnePhoto](https://github.com/benbasuni1/bento-coding-challenge/blob/master/planning/02-functionality-view-1photo.png)
 
 3. Allow users to **sort alphabetically by last word in the cat fact**
 ![sortAlphabetically](https://github.com/benbasuni1/bento-coding-challenge/blob/master/planning/03-functionality-sort.png)
