@@ -23,17 +23,31 @@
 
 ### Thought Process:
 ---
-##### Phase 1 (FRONT-END):
+##### Phase 1 (SETUP):
   1. [x] Connect React-Bootstrap, Center h1 Title 'Bento-Bento Cats'
   2. [x] Create Navbar with title and sort & favorite buttons
   3. [x] Establish data structures and variables needed to pass information throughout application
   4. [x] Get Data properly parsed from API's
         [x] Create parser function for cat Description
         [x] Create parser function for cat Picture
-  5. [ ] Instantiate 1 cat card
+  5. [x] Instantiate 1 cat card
         * Favorite Button
         * Image
         * Description
 ---
-##### Phase 2:
-  1. [ ] Connect React-Bootstrap, Center h1 Title 'Bento-Bento Cats'
+##### Phase 2 (FRONT-END):
+  1. [ ] Implement Render Modal functionality
+        * Tag along id, description, and image
+  2. [ ] Populate All cards in Card Component
+  3. [ ] Better CSS
+  4. [ ] Implement Sort functionality
+  5. [ ] Implement Favorites functionality
+
+---
+##### Phase 3 ():
+  1. [ ] Implement Render Modal functionality
+        * Tag along id, description, and image
+  2. [ ] Populate All cards in Card Component
+  3. [ ] Better CSS
+  4. [ ] Implement Sort functionality
+  5. [ ] Implement Favorites functionality

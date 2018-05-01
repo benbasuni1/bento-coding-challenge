@@ -1,4 +1,4 @@
-import { Button, Image } from 'react-bootstrap';
+import { Button, Image, Label } from 'react-bootstrap';
 // React & React Components
 import React, { Component } from 'react';
 import PageNavBar from './components/PageNavbar';
@@ -24,12 +24,17 @@ class App extends Component {
       cats      : [],
       favorites : [],
       view      : 'default',
+      openModal : false,
     }
   }
 
   componentWillMount() {
     // When the App renders, instantiate this.state.cats 
     this.populateCatObjects();
+  }
+
+  openModal() {
+    this.setState({ openModal: true });
   }
 
   populateCatObjects() {
@@ -74,10 +79,11 @@ class App extends Component {
         <PageNavBar />
         <div className="cards">
 
-          <div className="card">
+          <div className="card" onClick={() => this.openModal()}>
+            <Image className="cat-image" width="70%" height="70%" src={'http://25.media.tumblr.com/tumblr_m27b53Tkji1qze0hyo1_1280.jpg'} circle />
             <Button bsStyle="primary" className="favorite-button">Fav</Button>
+            <span className="cat-description">This is a description!</span>
           </div>
-
         </div>
       </div>
     );
@@ -85,34 +91,3 @@ class App extends Component {
 }
 
 export default App;
-
-/* <Image src={this.state.cats[0].image} /> */
-    // axios.get(catPicturesAPI)
-    // .then(data => convert.xmlDataToJSON(data.data))
-    // .then(json => json.response.data[0].images[0].image)
-    // .then(images => {
-    //   for (let i = 0; i < images.length; i++) {
-    //     this.setState({
-    //       cats: [...this.state.cats, {
-    //         id: i,
-    //         url: images[0].url[0]
-    //       }]
-    //     })
-    //   }
-    // })
-    // axios.get(catDescriptionsAPI)
-    // .then(data => JSON.parse(data.data.body))
-    // .then(parsedData => parsedData.data)
-    // .then(descriptions => {
-    //     for (let key in descriptions) {
-    //       let fact = descriptions[key].fact;
-    //       let descriptionInfo = [...this.state.cats];
-    //       descriptionInfo.forEach(item => {
-    //         item.description = fact;
-    //         item.last = fact.split(' ').splice(-1)[0];
-    //       });
-    //       this.setState({
-    //         cats: descriptionInfo
-    //       })
-    //     }
-    // })

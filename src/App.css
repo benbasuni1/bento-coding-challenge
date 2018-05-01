@@ -1,3 +1,6 @@
+body, .main {
+  background: #365A7C;
+}
 .main-title {
   text-align: center;
 }
@@ -19,13 +22,33 @@
 }
 
 .card {
-  background-color: lightblue;
+  position: relative;
+  background-color: #A8403A;
   border-radius: 5px;
   margin: 5px;
-  height: 200px;
+  height: 400px;
+}
+
+.cat-image {
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%)
+}
+
+.cat-description {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  bottom: 5%;
+  left: 50%;
+  margin-right: -50%;
 }
 
 .favorite-button {
+  color: black;
+  background-color: #F99B35;
+  display: block;
   float: right;
-  margin: 8px 8px 0 0;
+  margin: 20px 20px 0 0;
 }
