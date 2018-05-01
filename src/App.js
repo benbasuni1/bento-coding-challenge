@@ -44,23 +44,21 @@ class App extends Component {
   populateCatObjects() {
     let arr = [];
 
-    // Axios calls to get data
-    let catObjVals = Promise.all([axios.get(catImagesAPI), axios.get(catDescriptionsAPI)])
-    .then(requestData => {
-      // Parse data
-      return [
-        convert.xml2js(requestData[0].data, { compact: true }).response.data.images.image,
-        JSON.parse(requestData[1].data.body).data,
-      ];
-    })
-    .catch(err => {
-      console.log(err)
-    })
+    async function getCatInfo() {
+      try {
+        let catImages = await axios.get(catImagesAPI)
+          .then(requestData => convert.xml2js(requestData.data, { compact: true }).response.data.images.image);
+        let catDescription = await axios.get(catDescriptionsAPI)
+          .then(requestData => JSON.parse(requestData.data.body).data); 
+        return [catImages, catDescription];
+      } catch (err) { console.log(err); }
 
-    // Populate this.state.cats
-    catObjVals.then(items => {
-      let catImages = items[0];
-      let catDescription = items[1];
+      return null;
+    }
+
+    getCatInfo().then( information => {
+      let catImages = information[0];
+      let catDescription = information[1];
       for (let i = 0; i < catImages.length; i++) {
         let fact = catDescription[i].fact;
         arr.push({
@@ -74,11 +72,10 @@ class App extends Component {
       this.setState({
         cats: arr
       });
-    })
+    });
   }
 
   render() {
-    console.log(this.state.cats);
     return (
       <div className="main">
         <PageNavBar />
