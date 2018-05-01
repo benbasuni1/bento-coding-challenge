@@ -8,7 +8,7 @@
     "react-bootstrap": "^0.32.1",
     "react-dom": "^16.3.2",
     "react-scripts": "1.1.4",
-    "xml2js": "^0.4.19"
+    "xml-to-json-promise": "0.0.3"
   },
   "scripts": {
     "start": "react-scripts start",
