@@ -1,5 +1,5 @@
 body, .main {
-  background: #365A7C;
+  background: lightblue;
 }
 .main-title {
   text-align: center;
@@ -23,7 +23,7 @@ body, .main {
 
 .card {
   position: relative;
-  background-color: #A8403A;
+  border: 2px solid black;
   border-radius: 5px;
   margin: 5px;
   height: 400px;
@@ -31,10 +31,12 @@ body, .main {
 
 .cat-image {
   position: absolute;
-  top: 45%;
+  top: 50%;
   left: 50%;
   margin-right: -50%;
-  transform: translate(-50%, -50%)
+  transform: translate(-50%, -50%);
+  width: 80%;
+  height: 80%;
 }
 
 .cat-image-modal {
@@ -45,7 +47,7 @@ body, .main {
 .cat-description {
   position: absolute;
   transform: translate(-50%, -50%);
-  bottom: 5%;
+  bottom: 2%;
   left: 50%;
   margin-right: -50%;
 }

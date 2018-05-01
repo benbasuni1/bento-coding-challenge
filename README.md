@@ -35,7 +35,7 @@
         * Image
         * Description
 ---
-##### Phase 2 (FRONT-END):
+##### Phase 2 (FUNCTIONALITY):
   1. [ ] Implement Render Modal functionality
         * Tag along id, description, and image
   2. [ ] Populate All cards in Card Component
@@ -45,9 +45,3 @@
 
 ---
 ##### Phase 3 ():
-  1. [ ] Implement Render Modal functionality
-        * Tag along id, description, and image
-  2. [ ] Populate All cards in Card Component
-  3. [ ] Better CSS
-  4. [ ] Implement Sort functionality
-  5. [ ] Implement Favorites functionality

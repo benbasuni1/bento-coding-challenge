@@ -85,7 +85,7 @@ class App extends Component {
         <div className="cards">
 
           <div className="card" >
-            <Image onClick={(e) => this.openModal(e)} className="cat-image" width="70%" height="70%" src={'http://25.media.tumblr.com/tumblr_m27b53Tkji1qze0hyo1_1280.jpg'} circle />
+            <Image onClick={(e) => this.openModal(e)} className="cat-image" src={'http://25.media.tumblr.com/tumblr_m27b53Tkji1qze0hyo1_1280.jpg'} circle />
             <Button bsStyle="primary" className="favorite-button">Fav</Button>
             <span className="cat-description">This is a description!</span>
           </div>
@@ -96,7 +96,7 @@ class App extends Component {
             <Modal.Title align="center">This is a description</Modal.Title>
           </Modal.Header>
           <Modal.Body>
-            <Image className="cat-image-modal" width="70%" height="70%" src={'http://25.media.tumblr.com/tumblr_m27b53Tkji1qze0hyo1_1280.jpg'} circle />
+            <Image className="cat-image-modal" width="70%" src={'http://25.media.tumblr.com/tumblr_m27b53Tkji1qze0hyo1_1280.jpg'} circle />
           </Modal.Body>
           <Modal.Footer>
             <Button onClick={() => this.closeModal()}>Close</Button>
