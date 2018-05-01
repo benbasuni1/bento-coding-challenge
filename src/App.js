@@ -1,4 +1,4 @@
-import { Button, Image, Label } from 'react-bootstrap';
+  import { Button, Image, Modal } from 'react-bootstrap';
 // React & React Components
 import React, { Component } from 'react';
 import PageNavBar from './components/PageNavbar';
@@ -22,7 +22,6 @@ class App extends Component {
     // Instantiating state
     this.state = {
       cats      : [],
-      favorites : [],
       view      : 'default',
       openModal : false,
     }
@@ -33,8 +32,13 @@ class App extends Component {
     this.populateCatObjects();
   }
 
-  openModal() {
+  openModal(e) {
+    console.log(e.target.src)
     this.setState({ openModal: true });
+  }
+
+  closeModal() {
+    this.setState({ openModal: false });
   }
 
   populateCatObjects() {
@@ -63,7 +67,8 @@ class App extends Component {
           id: catImages[i].id._text,
           description: fact,
           image: catImages[i].url._text,
-          last: fact.split(' ').splice(-1)[0]
+          last: fact.split(' ').splice(-1)[0],
+          favorite: 0
         })
       }
       this.setState({
@@ -79,12 +84,25 @@ class App extends Component {
         <PageNavBar />
         <div className="cards">
 
-          <div className="card" onClick={() => this.openModal()}>
-            <Image className="cat-image" width="70%" height="70%" src={'http://25.media.tumblr.com/tumblr_m27b53Tkji1qze0hyo1_1280.jpg'} circle />
+          <div className="card" >
+            <Image onClick={(e) => this.openModal(e)} className="cat-image" width="70%" height="70%" src={'http://25.media.tumblr.com/tumblr_m27b53Tkji1qze0hyo1_1280.jpg'} circle />
             <Button bsStyle="primary" className="favorite-button">Fav</Button>
             <span className="cat-description">This is a description!</span>
           </div>
         </div>
+
+        <Modal show={this.state.openModal} onHide={() => this.closeModal()}>
+          <Modal.Header closeButton>
+            <Modal.Title align="center">This is a description</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            <Image className="cat-image-modal" width="70%" height="70%" src={'http://25.media.tumblr.com/tumblr_m27b53Tkji1qze0hyo1_1280.jpg'} circle />
+          </Modal.Body>
+          <Modal.Footer>
+            <Button onClick={() => this.closeModal()}>Close</Button>
+          </Modal.Footer>
+        </Modal>
+
       </div>
     );
   }

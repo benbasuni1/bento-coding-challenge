@@ -37,6 +37,11 @@ body, .main {
   transform: translate(-50%, -50%)
 }
 
+.cat-image-modal {
+  display: block;
+  margin: auto;
+}
+
 .cat-description {
   position: absolute;
   transform: translate(-50%, -50%);
