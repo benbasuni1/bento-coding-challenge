@@ -1,3 +1,16 @@
+.main-title {
+  text-align: center;
+}
+
+.brand {
+  line-height: 40px;
+  font-size: 36px;
+}
+
+.nav-item {
+  margin: 0px;
+}
+
 .App {
   text-align: center;
 }

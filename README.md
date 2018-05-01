@@ -23,10 +23,10 @@
 
 ### Thought Process:
 ---
-##### Phase 1:
-  1. [ ] Connect React-Bootstrap, Center h1 Title 'Bento-Bento Cats'
-  2. [ ] Get Data properly parsed from API's
-  3. [ ] Add Sort and Favorite button on top right of page
+##### Phase 1 (FRONT-END):
+  1. [x] Connect React-Bootstrap, Center h1 Title 'Bento-Bento Cats'
+  2. [x] Create Navbar with title and sort & favorite buttons
+  3. [ ] Get Data properly parsed from API's
   4. [ ] Instantiate 1 cat card
         * Favorite Button
         * Image
