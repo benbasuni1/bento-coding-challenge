@@ -31,7 +31,7 @@ body, .main {
   position: relative;
   border-radius: 5px;
   margin: 5px;
-  height: 400px;
+  height: 100%;
 }
 
 .card-overlay {
@@ -48,7 +48,7 @@ body, .main {
 
 .card-description {
   color: white;
-  font-size: 20px;
+  font-size: 12px;
   position: absolute;
   top: 50%;
   left: 50%;
