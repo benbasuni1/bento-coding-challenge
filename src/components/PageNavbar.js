@@ -12,7 +12,7 @@ const PageNavBar = props => (
         <Navbar.Collapse>
             <Nav pullRight>
             <NavItem eventKey={1} >
-                <Button bsStyle="success" className="nav-item" bsSize="large">Sort</Button>
+                <Button onClick={() => props.sortAlphabeticallyByLast()} bsStyle="success" className="nav-item" bsSize="large">Sort</Button>
             </NavItem>
             <NavItem eventKey={2} href="#">
                 <Button onClick={() => props.viewFavorites()}bsStyle="primary" className="nav-item" bsSize="large">View Favorites</Button>

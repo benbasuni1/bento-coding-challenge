@@ -22,7 +22,7 @@ class App extends Component {
     // Instantiating state
     this.state = {
       cats      : [],
-      tempArr   : [],
+      allCats   : [],
       view      : 'default',
       openModal : false,
     }
@@ -37,18 +37,17 @@ class App extends Component {
     this.populateCatObjects();
   }
 
+  /* View Favorites && all */
   viewFavorites() {
     this.setState({
-      tempArr: this.state.cats,
-      cats: this.state.cats.filter( cat => {
-        return cat.favorite;
-      }),
+      allCats: (this.state.allCats.length) ? this.state.allCats : this.state.cats,
+      cats: this.state.cats.filter( cat =>  cat.favorite ),
     })
   }
 
   viewAll() {
     this.setState({
-      cats: this.state.tempArr
+      cats: this.state.allCats
     })
   }
 
@@ -59,6 +58,17 @@ class App extends Component {
           ...cat,
           favorite: !cat.favorite
         } : cat
+      })
+    })
+  }
+
+  /* Sort Alphabetically */
+  sortAlphabeticallyByLast() {
+    this.setState({
+      cats: this.state.cats.sort((a, b) => {
+        if (a.last < b.last) return -1;
+        else if (a.last > b.last) return 1;
+        return 0;
       })
     })
   }
@@ -104,6 +114,7 @@ class App extends Component {
         <PageNavBar 
           viewFavorites={() => this.viewFavorites()}
           viewAll={() => this.viewAll()}
+          sortAlphabeticallyByLast={() => this.sortAlphabeticallyByLast()}
         />
         <div className="cards">
           {this.state.cats.map( item => (

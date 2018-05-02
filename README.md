@@ -41,8 +41,8 @@
   2. [x] Populate All cards in Card Component
         * Attach description, id, last, and image
   3. [x] Click on Favorites & toggle to 1 & 0
-  4. [ ] View Cards that are favorited
-  5. [ ] Sort based on Last
+  4. [x] View Cards that are favorited [Need to find more optimal way ???]
+  5. [x] Sort based on Last
 
 ---
 ##### Phase 3 (FINAL TOUCH UPS):
