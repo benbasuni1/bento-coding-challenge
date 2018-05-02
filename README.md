@@ -1,12 +1,12 @@
 # Bento Coding Challenge
 
 ### Instructions:
----
-
-##### Resources: 
-1. React
-2. Cat Images => http://thecatapi.com/api/images/get?format=xml&results_per_page=25
-3. Cat Facts  => http://cors-proxy.htmldriven.com/?url=https://catfact.ninja/facts?limit=25
+1. Use one of the following frameworks to build the project: Angular (v1 || v2), React, or Vue
+2. Use cat images from http://thecatapi.com/api/images/get?format=xml&results_per_page=25
+3. Use cat facts from http://cors-proxy.htmldriven.com/?url=https://catfact.ninja/facts?limit=25
+4. Allow users to sort photos alphabetically by the last word in the cat fact
+5. Allow users to “favorite” an image (with attached fact) and allow users to view only favorited images
+6. Allow users to view one photo and fact at a time
 
 ##### Pictures of Application
 1. Main Page
@@ -74,3 +74,12 @@
   3. [x] Make navbar stuck on top
   4. [ ] Upload better fonts
   5. [ ] Modal brush-up, consistent size
+
+---
+##### Phase 4 (ADVANCED FULL STACK APP):
+  1. [ ] Utilize Redux for state management
+  2. [ ] Introduce a database (MongoDB)
+  3. [ ] Implement Caching (LocalStorage so that we won't have to generate axios calls every refresh)
+  4. [ ] Implement a search function
+  5. [ ] What happens when data gets too large?
+  6. [ ] Deploy onto Docker Container
