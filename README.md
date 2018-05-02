@@ -8,6 +8,13 @@
 2. Cat Images => http://thecatapi.com/api/images/get?format=xml&results_per_page=25
 3. Cat Facts  => http://cors-proxy.htmldriven.com/?url=https://catfact.ninja/facts?limit=25
 
+##### Pictures of Application
+1. Main Page
+![main](https://github.com/benbasuni1/bento-coding-challenge/blob/master/planning/bento-cats.png)
+
+2. Modal When Clicked
+![modal](https://github.com/benbasuni1/bento-coding-challenge/blob/master/planning/bento-cats-2.png)
+
 ##### Application Layout:
 1. Application as a whole  
 ![App](https://github.com/benbasuni1/bento-coding-challenge/blob/master/planning/app.png)
