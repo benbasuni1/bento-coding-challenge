@@ -46,5 +46,8 @@
 
 ---
 ##### Phase 3 (FINAL TOUCH UPS):
-  1. [ ] CSS (Make UI Pretier)
-  2. [ ] Page Responsiveness
+  1. [x] Create Overlay for description to pop up when hovering
+  2. [ ] Create Modal Component and render the correct descriptions, etc.
+  3. [ ] CSS (Make UI Pretier)
+  4. [ ] Upload better fonts
+  4. [ ] Page Responsiveness

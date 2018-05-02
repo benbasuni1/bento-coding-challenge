@@ -28,8 +28,32 @@ body, .main {
   height: 400px;
 }
 
-.card:hover {
-  background: grey;
+.card-overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  transition: 1s ease;
+  background-color: black;
+  border-radius: 50%;
+}
+
+.card-description {
+  color: white;
+  font-size: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.card:hover .card-overlay {
+  opacity: .90;
+  cursor: pointer;
 }
 
 .cat-image {
@@ -60,6 +84,10 @@ body, .main {
   color: black;
   position: absolute;
   background-color: #F99B35;
-  bottom: 5%;
-  right: 5%;
+  bottom: 3%;
+  right: 3%;
+}
+
+.modal-background {
+  background-color: rgba(255,255,255,0.5);
 }

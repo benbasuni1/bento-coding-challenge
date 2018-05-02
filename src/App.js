@@ -2,6 +2,7 @@
 import React, { Component } from 'react';
 import PageNavBar from './components/PageNavbar';
 import CatCard from './components/CatCard';
+import CatModal from './components/CatModal';
 import { Modal, Image, Button } from 'react-bootstrap';
 
 // API Calls and Parser 
@@ -23,8 +24,8 @@ class App extends Component {
     this.state = {
       cats      : [],
       allCats   : [],
-      view      : 'default',
       openModal : false,
+      current   : ''
     }
 
     this.openModal.bind(this);
@@ -73,7 +74,18 @@ class App extends Component {
     })
   }
 
-  openModal() { this.setState({ openModal: true }) }
+  openModal(e) { 
+    let { id, image } = e.target.attributes;
+    this.setState({ 
+      openModal: true,
+      current: {
+        id: id.value,
+        description: e.target.innerHTML,
+        image: image.value
+      }
+    }) 
+  }
+
   closeModal() { this.setState({ openModal: false }) }
 
   populateCatObjects() {
@@ -120,7 +132,7 @@ class App extends Component {
           {this.state.cats.map( item => (
             <CatCard 
               openModal={(e) => this.openModal(e)}
-              saveToFavorites = {(e) => this.saveToFavorites(e)}
+              saveToFavorites = {e => this.saveToFavorites(e)}
               description={item.description} 
               key={item.id} 
               id={item.id} 
@@ -130,18 +142,13 @@ class App extends Component {
             />
           ))}
         </div>
-
-        <Modal show={this.state.openModal} onHide={() => this.closeModal()}>
-          <Modal.Header closeButton>
-            <Modal.Title align="center">This is a description</Modal.Title>
-          </Modal.Header>
-          <Modal.Body>
-            <Image className="cat-image-modal" width="70%" src={'http://25.media.tumblr.com/tumblr_m27b53Tkji1qze0hyo1_1280.jpg'} circle />
-          </Modal.Body>
-          <Modal.Footer>
-            <Button onClick={() => this.closeModal()}>Close</Button>
-          </Modal.Footer>
-        </Modal>
+         <CatModal 
+           show={this.state.openModal}
+           closeModal={() => this.closeModal()}
+           id={this.state.current.id} 
+           description={this.state.current.description} 
+           image={this.state.current.image} 
+         />
 
       </div>
     );
@@ -149,3 +156,16 @@ class App extends Component {
 }
 
 export default App;
+
+
+        // <Modal show={this.state.openModal} onHide={() => this.closeModal()}>
+        //   <Modal.Header closeButton>
+        //     <Modal.Title align="center">This is a description</Modal.Title>
+        //   </Modal.Header>
+        //   <Modal.Body>
+        //     <Image className="cat-image-modal" width="70%" src={'http://25.media.tumblr.com/tumblr_m27b53Tkji1qze0hyo1_1280.jpg'} circle />
+        //   </Modal.Body>
+        //   <Modal.Footer>
+        //     <Button onClick={() => this.closeModal()}>Close</Button>
+        //   </Modal.Footer>
+        // </Modal>
