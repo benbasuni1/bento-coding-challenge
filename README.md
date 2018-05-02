@@ -16,7 +16,7 @@
 ![viewOnePhoto](https://github.com/benbasuni1/bento-coding-challenge/blob/master/planning/02-functionality-view-1photo.png)
 
 3. Allow users to **sort alphabetically by last word in the cat fact**
-![sortAlphabetically](https://github.com/benbasuni1/bento-coding-challenge/blob/master/planning/03-functionality-sort.png)
+![sortAlphabetically](https://github.com/benbasuni1/bento-coding-challenge/blob/master/planning/03-functionality-sortByLastWord.png)
 
 4. Allow users to **favorite an image w/ fact**
 ![favoriteImage](https://github.com/benbasuni1/bento-coding-challenge/blob/master/planning/04-functionality-favorites.png)
