@@ -1,3 +1,4 @@
+/* Body and Navbar */
 body, .main {
   background: lightblue;
 }
@@ -10,10 +11,15 @@ body, .main {
   font-size: 36px;
 }
 
+.brand:hover {
+  cursor: pointer;
+}
+
 .nav-item {
   margin: 0px;
 }
 
+/* Cards */
 .cards {
   margin: 0 15%;
   display: grid;
@@ -56,6 +62,16 @@ body, .main {
   cursor: pointer;
 }
 
+.favorite-button {
+  color: black;
+  position: absolute;
+  background-color: #F99B35;
+  bottom: 3%;
+  right: 3%;
+}
+
+/* Images */
+
 .cat-image {
   position: absolute;
   top: 50%;
@@ -80,18 +96,13 @@ body, .main {
   margin-right: -50%;
 }
 
-.favorite-button {
-  color: black;
-  position: absolute;
-  background-color: #F99B35;
-  bottom: 3%;
-  right: 3%;
-}
 
+/* Modal */
 .modal-background {
   background-color: rgba(255,255,255,0.5);
 }
 
-.modal-footer .modal-body {
+.modal-body, .modal-footer {
   background: black;
+  color: white;
 }

@@ -127,9 +127,9 @@ class App extends Component {
     return (
       <div className="main">
         <PageNavBar 
+          sortAlphabeticallyByLast= {() => this.sortAlphabeticallyByLast()}
           viewFavorites           = {() => this.viewFavorites()}
           viewAll                 = {() => this.viewAll()}
-          sortAlphabeticallyByLast= {() => this.sortAlphabeticallyByLast()}
         />
         <div className="cards">
           {this.state.cats.map( item => (

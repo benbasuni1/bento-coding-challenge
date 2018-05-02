@@ -41,13 +41,12 @@
   2. [x] Populate All cards in Card Component
         * Attach description, id, last, and image
   3. [x] Click on Favorites & toggle to 1 & 0
-  4. [x] View Cards that are favorited [Need to find more optimal way ???]
+  4. [x] View Cards that are favorited
   5. [x] Sort based on Last
 
 ---
 ##### Phase 3 (FINAL TOUCH UPS):
   1. [x] Create Overlay for description to pop up when hovering
   2. [x] Create Modal Component and render the correct descriptions, etc.
-  3. [ ] CSS (Make UI Pretier)
-  4. [ ] Upload better fonts
-  4. [ ] Page Responsiveness
+  3. [ ] Upload better fonts
+  4. [ ] Modal brush-up, consistent size
