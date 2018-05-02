@@ -23,10 +23,13 @@ body, .main {
 
 .card {
   position: relative;
-  border: 2px solid black;
   border-radius: 5px;
   margin: 5px;
   height: 400px;
+}
+
+.card:hover {
+  background: grey;
 }
 
 .cat-image {
@@ -47,6 +50,7 @@ body, .main {
 .cat-description {
   position: absolute;
   transform: translate(-50%, -50%);
+  margin: 5px;
   bottom: 2%;
   left: 50%;
   margin-right: -50%;
@@ -54,8 +58,8 @@ body, .main {
 
 .favorite-button {
   color: black;
+  position: absolute;
   background-color: #F99B35;
-  display: block;
-  float: right;
-  margin: 20px 20px 0 0;
+  bottom: 5%;
+  right: 5%;
 }

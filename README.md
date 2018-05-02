@@ -36,12 +36,15 @@
         * Description
 ---
 ##### Phase 2 (FUNCTIONALITY):
-  1. [ ] Implement Render Modal functionality
+  1. [x] Implement Render Modal functionality
         * Tag along id, description, and image
-  2. [ ] Populate All cards in Card Component
-  3. [ ] Better CSS
-  4. [ ] Implement Sort functionality
-  5. [ ] Implement Favorites functionality
+  2. [x] Populate All cards in Card Component
+        * Attach description, id, last, and image
+  3. [ ] Click on Favorites & toggle to 1 & 0
+  4. [ ] View Cards that are valued 1
+  5. [ ] Sort based on Last
 
 ---
-##### Phase 3 ():
+##### Phase 3 (FINAL TOUCH UPS):
+  1. [ ] CSS (Make UI Pretier)
+  2. [ ] Page Responsiveness

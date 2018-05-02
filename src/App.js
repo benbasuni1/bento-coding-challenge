@@ -1,8 +1,8 @@
-  import { Button, Image, Modal } from 'react-bootstrap';
 // React & React Components
 import React, { Component } from 'react';
 import PageNavBar from './components/PageNavbar';
-// import Card from './components/Card';
+import CatCard from './components/CatCard';
+import { Modal, Image, Button } from 'react-bootstrap';
 
 // API Calls and Parser 
 import convert from 'xml-js';
@@ -25,6 +25,9 @@ class App extends Component {
       view      : 'default',
       openModal : false,
     }
+
+    this.openModal.bind(this);
+    this.saveToFavorites.bind(this);
   }
 
   componentWillMount() {
@@ -32,8 +35,18 @@ class App extends Component {
     this.populateCatObjects();
   }
 
+  saveToFavorites(e) {
+    this.setState({
+      cats: this.state.cats.map( cat => {
+        return (e.id === cat.id) ? {
+          ...cat,
+          favorite: !cat.favorite
+        } : cat
+      })
+    })
+  }
+
   openModal(e) {
-    console.log(e.target.src)
     this.setState({ openModal: true });
   }
 
@@ -44,13 +57,13 @@ class App extends Component {
   populateCatObjects() {
     let arr = [];
 
-    async function getCatInfo() {
+    const getCatInfo = async () => {
       try {
-        let catImages = await axios.get(catImagesAPI)
+        let imagePromise = axios.get(catImagesAPI)
           .then(requestData => convert.xml2js(requestData.data, { compact: true }).response.data.images.image);
-        let catDescription = await axios.get(catDescriptionsAPI)
+        let descriptionPromise = axios.get(catDescriptionsAPI)
           .then(requestData => JSON.parse(requestData.data.body).data); 
-        return [catImages, catDescription];
+        return await Promise.all([imagePromise, descriptionPromise]);
       } catch (err) { console.log(err); }
 
       return null;
@@ -80,12 +93,18 @@ class App extends Component {
       <div className="main">
         <PageNavBar />
         <div className="cards">
-
-          <div className="card" >
-            <Image onClick={(e) => this.openModal(e)} className="cat-image" src={'http://25.media.tumblr.com/tumblr_m27b53Tkji1qze0hyo1_1280.jpg'} circle />
-            <Button bsStyle="primary" className="favorite-button">Fav</Button>
-            <span className="cat-description">This is a description!</span>
-          </div>
+          {this.state.cats.map( item => (
+            <CatCard 
+              openModal={(e) => this.openModal(e)}
+              saveToFavorites = {(e) => this.saveToFavorites(e)}
+              description={item.description} 
+              key={item.id} 
+              id={item.id} 
+              image={item.image} 
+              last={item.last} 
+              favorite={item.favorite}
+            />
+          ))}
         </div>
 
         <Modal show={this.state.openModal} onHide={() => this.closeModal()}>
