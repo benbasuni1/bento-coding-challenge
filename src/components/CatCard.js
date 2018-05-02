@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Image, Modal, Navbar, NavItem, Nav} from 'react-bootstrap';
+import { Button, Image } from 'react-bootstrap';
 
 const CatCard = props => (
     <div className="card">

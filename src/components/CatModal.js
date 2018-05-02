@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Image, Modal, Navbar, NavItem, Nav} from 'react-bootstrap';
+import { Image, Modal } from 'react-bootstrap';
 
 const CatModal = props => (
     <Modal className="modal-background" show={props.show} onHide={() => props.closeModal()}>

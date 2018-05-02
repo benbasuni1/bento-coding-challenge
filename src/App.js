@@ -3,7 +3,6 @@ import React, { Component } from 'react';
 import PageNavBar from './components/PageNavbar';
 import CatCard from './components/CatCard';
 import CatModal from './components/CatModal';
-import { Modal, Image, Button } from 'react-bootstrap';
 
 // API Calls and Parser 
 import convert from 'xml-js';
@@ -39,16 +38,14 @@ class App extends Component {
   }
 
   /* View Favorites && all */
-  viewFavorites() {
-    this.setState({
-      allCats: (this.state.allCats.length) ? this.state.allCats : this.state.cats,
-      cats: this.state.cats.filter( cat =>  cat.favorite ),
-    })
+  viewAll() {
+    this.setState({ cats: this.state.allCats })
   }
 
-  viewAll() {
+  viewFavorites() {
     this.setState({
-      cats: this.state.allCats
+      allCats : (this.state.allCats.length) ? this.state.allCats : this.state.cats,
+      cats    : this.state.cats.filter( cat =>  cat.favorite ),
     })
   }
 
@@ -79,9 +76,9 @@ class App extends Component {
     this.setState({ 
       openModal: true,
       current: {
-        id: id.value,
-        description: e.target.innerHTML,
-        image: image.value
+        id          : id.value,
+        description : e.target.innerHTML,
+        image       : image.value
       }
     }) 
   }
@@ -93,28 +90,34 @@ class App extends Component {
 
     const getCatInfo = async () => {
       try {
-        let imagePromise = axios.get(catImagesAPI)
-          .then(requestData => convert.xml2js(requestData.data, { compact: true }).response.data.images.image);
-        let descriptionPromise = axios.get(catDescriptionsAPI)
-          .then(requestData => JSON.parse(requestData.data.body).data); 
+        let imagePromise = axios.get(catImagesAPI).then(requestData => {
+          return convert.xml2js(requestData.data, { compact: true }).response.data.images.image;
+        });
+
+        let descriptionPromise = axios.get(catDescriptionsAPI).then(requestData => {
+          return JSON.parse(requestData.data.body).data; 
+        });
+
         return await Promise.all([imagePromise, descriptionPromise]);
+
       } catch (err) { console.log(err); }
 
       return null;
     }
 
     getCatInfo().then( information => {
-      let catImages = information[0];
+      let catImages      = information[0];
       let catDescription = information[1];
+
       for (let i = 0; i < catImages.length; i++) {
         let fact = catDescription[i].fact;
         arr.push({
-          id: catImages[i].id._text,
-          description: fact,
-          image: catImages[i].url._text,
-          last: fact.split(' ').splice(-1)[0],
-          favorite: false
-        })
+          id          : catImages[i].id._text,
+          description : fact,
+          image       : catImages[i].url._text,
+          last        : fact.split(' ').splice(-1)[0],
+          favorite    : false
+        });
       }
       this.setState({ cats: arr });
     });
@@ -124,48 +127,34 @@ class App extends Component {
     return (
       <div className="main">
         <PageNavBar 
-          viewFavorites={() => this.viewFavorites()}
-          viewAll={() => this.viewAll()}
-          sortAlphabeticallyByLast={() => this.sortAlphabeticallyByLast()}
+          viewFavorites           = {() => this.viewFavorites()}
+          viewAll                 = {() => this.viewAll()}
+          sortAlphabeticallyByLast= {() => this.sortAlphabeticallyByLast()}
         />
         <div className="cards">
           {this.state.cats.map( item => (
             <CatCard 
-              openModal={(e) => this.openModal(e)}
+              openModal       = {e => this.openModal(e)}
               saveToFavorites = {e => this.saveToFavorites(e)}
-              description={item.description} 
-              key={item.id} 
-              id={item.id} 
-              image={item.image} 
-              last={item.last} 
-              favorite={item.favorite}
+              key             = {item.id} 
+              id              = {item.id} 
+              description     = {item.description} 
+              image           = {item.image} 
+              last            = {item.last} 
+              favorite        = {item.favorite}
             />
           ))}
         </div>
-         <CatModal 
-           show={this.state.openModal}
-           closeModal={() => this.closeModal()}
-           id={this.state.current.id} 
-           description={this.state.current.description} 
-           image={this.state.current.image} 
-         />
-
+        <CatModal 
+          show        = {this.state.openModal}
+          closeModal  = {() => this.closeModal()}
+          id          = {this.state.current.id} 
+          description = {this.state.current.description} 
+          image       = {this.state.current.image} 
+        />
       </div>
     );
   }
 }
 
 export default App;
-
-
-        // <Modal show={this.state.openModal} onHide={() => this.closeModal()}>
-        //   <Modal.Header closeButton>
-        //     <Modal.Title align="center">This is a description</Modal.Title>
-        //   </Modal.Header>
-        //   <Modal.Body>
-        //     <Image className="cat-image-modal" width="70%" src={'http://25.media.tumblr.com/tumblr_m27b53Tkji1qze0hyo1_1280.jpg'} circle />
-        //   </Modal.Body>
-        //   <Modal.Footer>
-        //     <Button onClick={() => this.closeModal()}>Close</Button>
-        //   </Modal.Footer>
-        // </Modal>
