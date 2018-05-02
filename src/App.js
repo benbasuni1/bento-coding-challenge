@@ -39,7 +39,7 @@ class App extends Component {
 
   /* View Favorites && all */
   viewAll() {
-    this.setState({ cats: this.state.allCats })
+    this.setState({ cats: (this.state.allCats.length) ? this.state.allCats : this.state.cats })
   }
 
   viewFavorites() {
