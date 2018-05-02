@@ -9,10 +9,10 @@
 3. Cat Facts  => http://cors-proxy.htmldriven.com/?url=https://catfact.ninja/facts?limit=25
 
 ##### Application Layout:
-1. Application as a whole
+1. Application as a whole  
 ![App](https://github.com/benbasuni1/bento-coding-challenge/blob/master/planning/app.png)
 
-2. Cat Card Sample
+2. Cat Card Sample  
 ![Cat Card](https://github.com/benbasuni1/bento-coding-challenge/blob/master/planning/card.png)
 
 3. App Components
@@ -64,6 +64,6 @@
 ##### Phase 3 (FINAL TOUCH UPS):
   1. [x] Create Overlay for description to pop up when hovering
   2. [x] Create Modal Component and render the correct descriptions, etc.
-  3. [ ] Make navbar stuck on top
+  3. [x] Make navbar stuck on top
   4. [ ] Upload better fonts
   5. [ ] Modal brush-up, consistent size
