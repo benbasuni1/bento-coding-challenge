@@ -40,8 +40,8 @@
         * Tag along id, description, and image
   2. [x] Populate All cards in Card Component
         * Attach description, id, last, and image
-  3. [ ] Click on Favorites & toggle to 1 & 0
-  4. [ ] View Cards that are valued 1
+  3. [x] Click on Favorites & toggle to 1 & 0
+  4. [ ] View Cards that are favorited
   5. [ ] Sort based on Last
 
 ---

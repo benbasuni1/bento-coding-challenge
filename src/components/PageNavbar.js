@@ -15,7 +15,10 @@ const PageNavBar = props => (
                 <Button bsStyle="success" className="nav-item" bsSize="large">Sort</Button>
             </NavItem>
             <NavItem eventKey={2} href="#">
-                <Button bsStyle="primary" className="nav-item" bsSize="large">View Favorites</Button>
+                <Button onClick={() => props.viewFavorites()}bsStyle="primary" className="nav-item" bsSize="large">View Favorites</Button>
+            </NavItem>
+            <NavItem eventKey={3} href="#">
+                <Button onClick={() => props.viewAll()}bsStyle="danger" className="nav-item" bsSize="large">View All</Button>
             </NavItem>
             </Nav>
         </Navbar.Collapse>

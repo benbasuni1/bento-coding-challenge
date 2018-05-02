@@ -22,17 +22,34 @@ class App extends Component {
     // Instantiating state
     this.state = {
       cats      : [],
+      tempArr   : [],
       view      : 'default',
       openModal : false,
     }
 
     this.openModal.bind(this);
     this.saveToFavorites.bind(this);
+    this.viewFavorites.bind(this);
   }
 
   componentWillMount() {
     // When the App renders, instantiate this.state.cats 
     this.populateCatObjects();
+  }
+
+  viewFavorites() {
+    this.setState({
+      tempArr: this.state.cats,
+      cats: this.state.cats.filter( cat => {
+        return cat.favorite;
+      }),
+    })
+  }
+
+  viewAll() {
+    this.setState({
+      cats: this.state.tempArr
+    })
   }
 
   saveToFavorites(e) {
@@ -46,13 +63,8 @@ class App extends Component {
     })
   }
 
-  openModal(e) {
-    this.setState({ openModal: true });
-  }
-
-  closeModal() {
-    this.setState({ openModal: false });
-  }
+  openModal() { this.setState({ openModal: true }) }
+  closeModal() { this.setState({ openModal: false }) }
 
   populateCatObjects() {
     let arr = [];
@@ -79,19 +91,20 @@ class App extends Component {
           description: fact,
           image: catImages[i].url._text,
           last: fact.split(' ').splice(-1)[0],
-          favorite: 0
+          favorite: false
         })
       }
-      this.setState({
-        cats: arr
-      });
+      this.setState({ cats: arr });
     });
   }
 
   render() {
     return (
       <div className="main">
-        <PageNavBar />
+        <PageNavBar 
+          viewFavorites={() => this.viewFavorites()}
+          viewAll={() => this.viewAll()}
+        />
         <div className="cards">
           {this.state.cats.map( item => (
             <CatCard 
