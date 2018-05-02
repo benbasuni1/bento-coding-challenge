@@ -48,5 +48,6 @@
 ##### Phase 3 (FINAL TOUCH UPS):
   1. [x] Create Overlay for description to pop up when hovering
   2. [x] Create Modal Component and render the correct descriptions, etc.
-  3. [ ] Upload better fonts
-  4. [ ] Modal brush-up, consistent size
+  3. [ ] Make navbar stuck on top
+  4. [ ] Upload better fonts
+  5. [ ] Modal brush-up, consistent size

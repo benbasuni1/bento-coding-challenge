@@ -4,7 +4,10 @@ import { Button, Image } from 'react-bootstrap';
 const CatCard = props => (
     <div className="card">
         <Image className="cat-image" src={props.image} circle />
-        <Button onClick={(e) => props.saveToFavorites(props)} bsStyle="primary" className="favorite-button">Fav</Button>
+        <Button 
+        onClick={(e) => props.saveToFavorites(props)} 
+        bsStyle={props.favorite ? "warning" : "danger"}
+        className="favorite-button">{props.favorite ? "Unfav" : "Fav"}</Button>
         <div className="card-overlay">
             <div 
                 onClick={e => props.openModal(e)} 

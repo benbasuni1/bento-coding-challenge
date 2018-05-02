@@ -24,7 +24,8 @@ class App extends Component {
       cats      : [],
       allCats   : [],
       openModal : false,
-      current   : ''
+      current   : '',
+      view      : 'default'
     }
 
     this.openModal.bind(this);
@@ -39,13 +40,17 @@ class App extends Component {
 
   /* View Favorites && all */
   viewAll() {
-    this.setState({ cats: (this.state.allCats.length) ? this.state.allCats : this.state.cats })
+    this.setState({ 
+      cats : this.state.allCats,
+      view : 'default'
+    });
   }
 
   viewFavorites() {
     this.setState({
       allCats : (this.state.allCats.length) ? this.state.allCats : this.state.cats,
       cats    : this.state.cats.filter( cat =>  cat.favorite ),
+      view    : 'favorite'
     })
   }
 
@@ -56,14 +61,31 @@ class App extends Component {
           ...cat,
           favorite: !cat.favorite
         } : cat
+      }),
+      allCats: this.state.allCats.map( cat => {
+        return (e.id === cat.id) ? {
+          ...cat,
+          favorite: !cat.favorite
+        } : cat
       })
-    })
+    }, () => {
+      if (this.state.view === 'favorite') {
+        this.setState({
+          cats: this.state.cats.filter( cat => cat.favorite ),
+        })
+      } else {
+        this.setState({
+          allCats: this.state.cats
+        })
+      }
+    });
   }
 
   /* Sort Alphabetically */
   sortAlphabeticallyByLast() {
     this.setState({
-      cats: this.state.cats.sort((a, b) => {
+      view : 'default',
+      cats : this.state.cats.sort((a, b) => {
         if (a.last < b.last) return -1;
         else if (a.last > b.last) return 1;
         return 0;
@@ -119,7 +141,10 @@ class App extends Component {
           favorite    : false
         });
       }
-      this.setState({ cats: arr });
+      this.setState({ 
+        cats: arr,
+        allCats: arr 
+      });
     });
   }
 
